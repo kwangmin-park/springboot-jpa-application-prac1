@@ -21,7 +21,7 @@ class MemberRepositoryTest {
 //    @Rollback(false)
     public void test(){
         Member member = new Member();
-        member.setUsername("memberA");
+        member.setName("memberA");
 
 //        when
         Long savedId = memberRepository.save(member);
@@ -29,7 +29,7 @@ class MemberRepositoryTest {
 
 //        then
         Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
-        Assertions.assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
+        Assertions.assertThat(findMember.getName()).isEqualTo(member.getName());
         Assertions.assertThat(findMember).isEqualTo(member); // 영속성 컨텐스트로 인해 id가 같으면 같다고 판단
     }
 
